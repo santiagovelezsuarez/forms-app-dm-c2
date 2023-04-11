@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { UserForm } from "./src/components/UserForm";
 import { User } from "./src/components/User";
-import { Pressable, SafeAreaView, StyleSheet, Text, Modal, FlatList } from 'react-native';
+import { Pressable, SafeAreaView, StyleSheet, Text, Modal, FlatList, Alert } from 'react-native';
 
 export default function App(){
     const [modalVisible, setModalVisible] = useState(false);
@@ -10,9 +10,33 @@ export default function App(){
                                             id: 1,
                                             name: "Santiago Velez S",
                                             email: "santiago.velezs@autonoma.edu.co",
-                                            movil: "300 000 0000",
-                                            regDate: new Date("2021-01-01"),
-                                            msg: "Hola, lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl."            
+                                            movil: "3157530029",
+                                            regDate: new Date("2023-03-29"),
+                                            msg: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl."            
+                                        },
+                                        { 
+                                            id: 2,
+                                            name: "Jhon Doe",
+                                            email: "jhon.doe@autonoma.edu.co",
+                                            movil: "3108807070",
+                                            regDate: new Date("2023-04-01"),
+                                            msg: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl."            
+                                        },
+                                        {
+                                            id: 3,
+                                            name: "Jane Doe",
+                                            email: "jane.doe@autonoma.edu.co",
+                                            movil: "3169617153",
+                                            regDate: new Date("2023-04-03"),
+                                            msg: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl."
+                                        },
+                                        {
+                                            id: 4,
+                                            name: "John Smith",
+                                            email: "john.smith@autonoma.edu.co",
+                                            movil: "3118178931",
+                                            regDate: new Date("2023-04-05"),
+                                            msg: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl. Sed euismod, nunc vel tincidunt lacinia, nunc nisl aliquam nisl, eget aliquam nunc nisl eget nisl."
                                         }]);
     const [user, setUser] = useState({});   
     
@@ -22,9 +46,26 @@ export default function App(){
         setModalVisible(true);
     } 
     
-    const deleteUser = (id) => {
-        const newUsers = users.filter((user) => user.id !== id);
-        setUsers(newUsers);
+    const deleteUser = (id) => {        
+        Alert.alert(
+            'Eliminar',
+            '¿Estás seguro de que quieres eliminar esta inscripción?',
+            [
+            {
+                text: 'Cancelar',
+                onPress: () => console.log('Cancelado'),
+                style: 'cancel'
+            },
+            {
+                text: 'Eliminar',
+                onPress: () => {
+                    const newUsers = users.filter((user) => user.id !== id);
+                    setUsers(newUsers);
+                }
+            }
+            ],
+            { cancelable: false }
+        );        
     }
     
     return(

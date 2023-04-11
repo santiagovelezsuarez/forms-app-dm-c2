@@ -36,7 +36,7 @@ export const User = ({item, setModalUserForm, editUser, deleteUser }) => {
                             deleteUser(id)
                         }}
                     >
-                        <Text style={styles.buttonText}>Eliminar</Text>
+                        <Text style={styles.buttonTextX}>Eliminar</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -60,13 +60,13 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     text: {
-        color: "#000000",
+        color: "#CCCCCC",
         fontSize: 20,
         fontWeight: "700",
         marginBottom: 10,
     },
     dateFormated: {
-        color: "#000000",
+        color: "#CCCCCC",
     },
     buttons: {
         flexDirection: "row",
@@ -77,17 +77,24 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         paddingHorizontal: 20,
         borderRadius: 5,
+        marginHorizontal: 5,
     },
     btnEdit: {
         backgroundColor: "#CCCCCC"
     },
     btnDeleteOne: {
-        backgroundColor: "rgba(255, 0, 0, 0.7)"
+        backgroundColor: "rgba(255, 80, 80, 0.7)"
     },
     buttonText: {
         textTransform: "uppercase",
-        fontWeight: "700",
+        fontWeight: "800",
         fontSize: 12,
         color: "#222222",
+    },
+    buttonTextX: {
+        textTransform: "uppercase",
+        fontWeight: "800",
+        fontSize: 12,
+        color: "#000000",
     },
 })
