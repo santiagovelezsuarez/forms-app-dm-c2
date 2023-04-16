@@ -4,8 +4,8 @@ import DatePicker from 'react-native-date-picker'
 const image = require('../assets/dev2.jpg')
 const logo = require('../assets/uam.png')
 
-export const UserForm = ({modalVisible, setModalVisible, users, setUsers, user}) => {  
-    
+export const UserForm = ({modalVisible, setModalVisible, users, setUsers, user, setUser}) => {  
+      
     const [open, setOpen] = useState(false)
     const [regDateLabel, setRegDateLabel] = useState("Fecha de inscripción")
 
@@ -47,6 +47,7 @@ export const UserForm = ({modalVisible, setModalVisible, users, setUsers, user})
             Alert.alert('Ok', 'Estudiante editado', [
                 {text: 'Aceptar', onPress: () => console.log('OK Pressed')},
             ])
+            user = {}
             return
         }
         else{
@@ -70,7 +71,7 @@ export const UserForm = ({modalVisible, setModalVisible, users, setUsers, user})
             <ImageBackground 
                 style={styles.backCover}
                 source={image}>
-                <Pressable onPress={() => setModalVisible(false)} style={styles.btnNewUser}>
+                <Pressable onPress={() => {setModalVisible(false); setUser({})}} style={styles.btnNewUser}>
                     <Image source={logo} style={styles.image}/>
                 </Pressable>                
                 <ScrollView>
